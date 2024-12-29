@@ -69,8 +69,13 @@ while user_choice == "1" or user_choice == "2":
         print("\n\n")
             
     else:
-        user_username = input("Username : ")
-        user_password = input("Password : ")
+        user_username = input("Enter Username : ")
+
+        while positionof(user_username, username_list) != -1:
+            print("Sorry! Username already taken. Please select another username.")
+            user_username = input("Enter Username : ")
+
+        user_password = input("Enter Password : ")
 
         username_list.append(user_username)
         salt = custom_salt()
@@ -82,6 +87,7 @@ while user_choice == "1" or user_choice == "2":
 
         print("Successfully Registered!")
         print("\n\n")
+            
 
     print("1. Already a user? Login!")
     print("2. New user? Sign Up!")
